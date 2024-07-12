@@ -1,52 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import 'react-native-gesture-handler';
+import Animated from 'react-native-reanimated';
+import React, { useState, useEffect, useSyncExternalStore } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { ImageBackground, Image, StyleSheet, View } from 'react-native';
-import CurrentWeather from './components/CurrentWeather';
-import SearchWeather from './components/SearchWeather';
 import config from './config';
-import Background from './assets/Wallpaper.png';
+import Background from './assets/bg2.png';
 import Background2 from './assets/Wallpaper2.png';
+import NavigationIndex from './navigation';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App() {
-  const [toggleSearch, setToggleSearch] = useState('city');
-  const [city, setCity] = useState('');
-  const [lat, setLat] = useState();
-  const [long, setLong] = useState();
-  const [weather, setWeather] = useState({});
-//  let KEY = config.API_KEY
-  
-  const fetchWeatherByCity = () => {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${config.API_KEY.replace(/[',]/g, '')}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setWeather(data)
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching weather data by city:", error);
-      });
-  };
+ const [user_id , setuserid] =  useState(null)
+  //  let KEY = config.API_KEY
+  function checkUserLoggedin(){
+ AsyncStorage.getItem('user_id').then((data) =>{
+  if(data !== null) {
+    console.log(data,'loggg')
+  setuserid(data)
+  }else{
+    setuserid(null)
+  }
+ })
+  }
 
-  
 
+  useEffect(() =>{
+ checkUserLoggedin()
+  },[])
   return (
-    <ImageBackground blurRadius={30} source={Background} style={styles.background}>
-    <View style={styles.container}>
-      {/* Pass props to SearchWeather */}
-      <SearchWeather
-        city={city}
-        setCity={setCity}
-        toggleSearch={toggleSearch}
-        setToggleSearch={setToggleSearch}
-        fetchWeatherByCity={fetchWeatherByCity}
-        
-      />
-      {/* Pass props to CurrentWeather */}
-      <CurrentWeather currentWeather={weather} timezone={weather.timezone} />
-      {/* Status bar */}
-      <StatusBar style="light" />
-    </View>
-    </ImageBackground>
+<GestureHandlerRootView style={{flex:1}}>
+   <NavigationIndex  user_id={user_id} />
+   </GestureHandlerRootView>
   );
 }
 

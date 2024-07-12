@@ -1,17 +1,16 @@
 {
   "expo": {
-    "name": "WeatherAppMobile",
-    "slug": "WeatherAppMobile",
+    "name": "Dipankar",
+    "slug": "Dipankar",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/we_app_logo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash-illustration.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -22,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.dipankar607.Dipankar"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0137dc30-9d63-4bd8-abe6-de0211b33580"
+      }
     }
   }
 }
