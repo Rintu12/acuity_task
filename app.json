@@ -4,7 +4,7 @@
     "slug": "Dipankar",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/we_app_logo.png",
+    "icon": "./assets/splash.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash-illustration.png",

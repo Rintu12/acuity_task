@@ -1,5 +1,4 @@
 import 'react-native-gesture-handler';
-import React, { useState, useEffect, useSyncExternalStore } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StyleSheet, View ,Text} from 'react-native';
@@ -9,6 +8,10 @@ export default function App() {
 
   return (
 <GestureHandlerRootView style={{flex:1}}>
+<StatusBar
+        barStyle='#000'
+        backgroundColor='#2FB8CA' 
+      />
   <NavigationContainer>
   <BottomTabNavigationIndex/>
 

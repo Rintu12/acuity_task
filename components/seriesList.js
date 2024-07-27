@@ -35,7 +35,7 @@ function SeriesList() {
 
                     <PageHeader title="Select Brand Series" action={() => navigation.goBack()} />
 
-                    <View style={{ padding: 16 }}>
+                    <View style={{ padding: 5 }}>
                         <FlatList
                             data={serieslist}
                             renderItem={({ item }) => {
@@ -51,15 +51,15 @@ function SeriesList() {
                                             justifyContent: 'center',
                                             alignItems: 'center',
                                             marginLeft: 5,
-                                            padding: 10,
+                                            // padding: 10,
                                             shadowColor: "#000",
                                             shadowOffset: {
                                               width: 0,
-                                              height: 2,
+                                              height: .5,
                                             },
                                             shadowOpacity: 0.25,
-                                            shadowRadius: 3.84,
-                                            elevation: 5,
+                                            shadowRadius: 1,
+                                            elevation: 3,
                                             // backgroundColor: '#000',
                                             // height:140,
                                             // flexDirection:'column',
@@ -69,7 +69,7 @@ function SeriesList() {
                                             padding:0,
                                             
                                             // borderColor: '#000',
-                                            borderRadius: 10,
+                                            // borderRadius: 10,
 
                                         }}
                                             onPress={() => navigation.navigate('SeriesDetails', { seriesid: item?.id })}

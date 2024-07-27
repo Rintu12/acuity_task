@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getBrands } from "../api_endpoint/api"
-import { View, Text, SafeAreaView, FlatList, Image, TouchableOpacity } from "react-native"
+import { View, Text, SafeAreaView, FlatList, Image, TouchableOpacity, ActivityIndicator } from "react-native"
 import PageHeader from "./screenheader"
 
 import {
@@ -40,7 +40,7 @@ const  BrandsList = () =>  {
 
                     <PageHeader title="Brands" action={() => navigation.goBack()} />
 
-                    <View style={{ padding: 16 }}>
+                    <View style={{ padding: 5 }}>
                         <FlatList
                             data={brandslist}
                             renderItem={({ item }) => {
@@ -53,7 +53,6 @@ const  BrandsList = () =>  {
 
                                          style={{
                                             width: 110,
-
                                             // paddingHorizontal: 7,
                                             height: 90,
                                             // backgroundColor:'red',
@@ -65,23 +64,13 @@ const  BrandsList = () =>  {
                                             shadowColor: "#000",
                                             shadowOffset: {
                                               width: 0,
-                                              height: 2,
+                                              height: .5,
                                             },
                                             shadowOpacity: 0.25,
-                                            shadowRadius: 3.84,
-                                            elevation: 5,
-                                            // backgroundColor: '#000',
-                                            // height:140,
-                                            // flexDirection:'column',
+                                            shadowRadius: 1,
+                                            elevation: 3,
                                             borderRadius: 8,
-                                            // overflow: 'hidden',
-                                            // marginBottom: 14,
                                             padding:0,
-                                            
-                                            // borderColor: '#000',
-                                            borderRadius: 10,
-                                            // borderWidth: 1,
-
                                         }} 
                                         >
                                             <View style={{ position: "absolute" ,
@@ -106,7 +95,7 @@ const  BrandsList = () =>  {
                                 flexDirection: 'row',
                                 marginHorizontal: -6,
                                 paddingTop: 3,
-                                padding: 10
+                                // padding: 10
                             }}
                             numColumns={3}
                         />
